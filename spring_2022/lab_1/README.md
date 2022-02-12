@@ -723,7 +723,7 @@ movies (title_id, primary_title, premiered) AS ( -- Precomputed movies
 SELECT rating, votes, primary_title, premiered  -- Join them.
 FROM excellent AS e, movies AS m
 WHERE e.title_id = m.title_id
-ORDER BY rating LIMIT 10;
+ORDER BY rating DESC LIMIT 10;
 
 +++++++++++++++++++++++++++
 
