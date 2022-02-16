@@ -14,6 +14,10 @@ WITH base_table AS (
         ratings
     WHERE titles.title_id = crew.title_id
         AND people.person_id = crew.person_id
+        AND (
+            crew.category = 'actor'
+            OR crew.category = 'actress'
+        )
         AND titles.type = 'movie'
         AND ratings.title_id = titles.title_id
         AND ratings.rating >= 5

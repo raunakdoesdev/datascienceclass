@@ -11,15 +11,14 @@ WITH good_stuff AS (
         )
         AND ratings.rating >= 8
         AND ratings.votes >= 100
-        AND titles.premiered = 2021
+        AND titles.premiered == 2021
 )
 SELECT "type",
     "name",
     rating,
     RANK() OVER (
         PARTITION BY good_stuff.type
-        ORDER BY rating DESC,
-            "name" ASC
+        ORDER BY rating DESC
     ) AS rank
 FROM good_stuff
 ORDER BY "type" ASC,
